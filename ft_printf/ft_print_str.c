@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_print_str.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: setilbec <setilbec@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/29 17:56:29 by setilbec          #+#    #+#             */
-/*   Updated: 2026/08/29 18:32:30 by setilbec         ###   ########.fr       */
+/*   Created: 2026/08/29 18:06:12 by setilbec          #+#    #+#             */
+/*   Updated: 2026/08/29 18:10:59 by setilbec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
+#include "ft_printf.h"
 
-#endif
+int	ft_print_str(char *str)
+{
+	int	len;
+
+	if (!str)
+		str = "(null)";
+	len = 0;
+	while (str[len])
+		len++;
+	return (write(1, str, len));
+}

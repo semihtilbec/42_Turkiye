@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_print_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: setilbec <setilbec@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/29 17:56:29 by setilbec          #+#    #+#             */
-/*   Updated: 2026/08/29 18:32:30 by setilbec         ###   ########.fr       */
+/*   Created: 2026/08/29 17:57:42 by setilbec          #+#    #+#             */
+/*   Updated: 2026/08/29 17:59:23 by setilbec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
+#include "ft_printf.h"
 
-#endif
+int	ft_print_char(char c)
+{
+	return (write(1, &c, 1));
+}

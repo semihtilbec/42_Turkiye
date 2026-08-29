@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_ptr_hex.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: setilbec <setilbec@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/29 17:56:29 by setilbec          #+#    #+#             */
-/*   Updated: 2026/08/29 18:32:30 by setilbec         ###   ########.fr       */
+/*   Created: 2026/08/29 18:44:25 by setilbec          #+#    #+#             */
+/*   Updated: 2026/08/29 19:12:14 by setilbec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
+#include "ft_printf.h"
 
-#endif
+int	ft_ptr_hex(unsigned long long n)
+{
+	int	count;
+	int	*base;
+
+	count = 0;
+	base = "0123456789abcdef";
+	if (n >= 16)
+		count += ft_ptr_hex(n / 16);
+	count += ft_print_char(base[n % 16]);
+	return (count);
+}
