@@ -6,7 +6,7 @@
 /*   By: setilbec <setilbec@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/29 15:40:20 by setilbec          #+#    #+#             */
-/*   Updated: 2026/08/29 18:23:10 by setilbec         ###   ########.fr       */
+/*   Updated: 2026/08/30 16:48:40 by setilbec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,15 @@ static int	check_format(char character, va_list args)
 		return (ft_print_str(va_arg(args, char *)));
 	else if (character == 'p')
 		return (ft_print_ptr(va_arg(args, void *)));
-	else if (character == 'd')
-		return (ft_print_dcml(va_arg(args, int)));
-	else if (character == 'i')
-		return (ft_print_int(va_arg(args, int)));
+	else if (character == 'd' || character == 'i')
+		return (ft_print_nbr(va_arg(args, int)));
 	else if (character == 'u')
 		return (ft_print_unsigned(va_arg(args, unsigned int)));
 	else if (character == 'x' || character == 'X')
 		return (ft_print_hex(va_arg(args, unsigned int), character));
 	else if (character == '%')
 		return (ft_print_char('%'));
+	return (0);
 }
 
 int	ft_printf(const char *format, ...)

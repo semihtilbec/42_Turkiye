@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_hex.c                                     :+:      :+:    :+:   */
+/*   ft_print_nbr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: setilbec <setilbec@student.42istanbul.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/29 18:44:25 by setilbec          #+#    #+#             */
-/*   Updated: 2026/08/30 16:44:25 by setilbec         ###   ########.fr       */
+/*   Created: 2026/08/30 16:01:42 by setilbec          #+#    #+#             */
+/*   Updated: 2026/08/30 16:38:27 by setilbec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_hex(unsigned long long n, char format)
+int	ft_print_nbr(int n)
 {
 	int		count;
-	char	*base;
+	long	nbr;
 
 	count = 0;
-	if (format == 'X')
-		base = "0123456789ABCDEF";
-	else
-		base = "0123456789abcdef";
-	if (n >= 16)
-		count += ft_print_hex(n / 16, format);
-	count += ft_print_char(base[n % 16]);
+	nbr = n;
+	if (nbr < 0)
+	{
+		count += ft_print_char('-');
+		nbr = -nbr;
+	}
+	if (nbr >= 10)
+		count += ft_print_nbr(nbr / 10);
+	count += ft_print_char((nbr % 10) + '0');
 	return (count);
 }
